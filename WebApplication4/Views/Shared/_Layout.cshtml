@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WebApplication4</title>
+@*     <link rel="stylesheet" href="~/WebApplication4.styles.css" />
+ *@@*     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />  *@
+@*     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" /> *@
+    <link rel="stylesheet" href="~/WebApplication4.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/pages/navbarandfooter.css" />
+    <link rel="stylesheet" href="~/pages/table.css" />
+    <link rel="stylesheet" href="~/pages/edit.css" />
+</head>
+<body>
+    <header>
+        <nav class="nav">
+            <div class="navContainer">
+                <div class="leftLinks">
+                    <a class="link" asp-area="" asp-controller="Home" asp-action="Index">MiniUdemy</a>
+                    <a class="link" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                </div>
+                <div class="rightLinks">
+
+                    <div class="dropdown">
+                        <a class="dropdownBtn link">BD</a>
+                        <div class="dropdownMenu">
+                            <a class="link" asp-area="" asp-controller="Home" asp-action="Index">Головна сторінка</a>
+                            <a class="link" asp-area="" asp-controller="courses" asp-action="Index">Курси</a>
+                            <a class="link" asp-area="" asp-controller="categories" asp-action="Index">Категорії</a>
+                            <a class="link" asp-area="" asp-controller="students" asp-action="Index">Студенти</a>
+                            <a class="link" asp-area="" asp-controller="teachers" asp-action="Index">Викладачі</a>
+                            <a class="link" asp-area="" asp-controller="specializations" asp-action="Index">Спеціалізації</a>
+                            <a class="link" asp-area="" asp-controller="difficultylevels" asp-action="Index">Рівень складності</a>
+                            <a class="link" asp-area="" asp-controller="teachersSpecializations" asp-action="Index">Спеціалізації вчителів</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2024 - WebApplication4 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+@*     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script> *@
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

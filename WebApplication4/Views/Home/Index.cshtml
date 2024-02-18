@@ -1,0 +1,135 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@* <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" /> *@
+@* <div class="wide-hero-banner-slide-module--image-container--PM07Q">
+    <picture>
+        <img class="baner" src="https://img-c.udemycdn.com/notices/web_carousel_slide/image/db24b94e-d190-4d5a-b1dd-958f702cc8f5.jpg">
+    </picture>
+</div> *@
+<div class="card-container">
+    <div class="card">
+        <div class="rating">
+            Рейтинг: <span class="rating-value">2/5</span>
+            <span class="stars">★★☆☆☆</span>
+        </div>
+        <img src="https://img-c.udemycdn.com/course/240x135/1581488_e3e1_2.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h4 class="card-title">Complete C# Masterclass</h4>
+            <h6 class="card-text">Denis Panjuta, Michael Guay</h6>
+        </div>
+    </div>
+    <div class="card">
+        <div class="rating">
+            Рейтинг: <span class="rating-value">0/5</span>
+            <span class="stars">☆☆☆☆☆</span>
+        </div>
+        <img src="https://png.pngtree.com/png-vector/20190820/ourmid/pngtree-no-image-vector-illustration-isolated-png-image_1694547.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h4 class="card-title"></h4>
+            <h6 class="card-text"></h6>
+        </div>
+    </div>
+    <div class="card">
+        <div class="rating">
+            Рейтинг: <span class="rating-value">0/5</span>
+            <span class="stars">☆☆☆☆☆</span>
+        </div>
+        <img src="https://png.pngtree.com/png-vector/20190820/ourmid/pngtree-no-image-vector-illustration-isolated-png-image_1694547.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h4 class="card-title"></h4>
+            <h6 class="card-text"></h6>
+        </div>
+    </div>
+    <div class="card">
+        <div class="rating">
+            Рейтинг: <span class="rating-value">0/5</span>
+            <span class="stars">☆☆☆☆☆</span>
+        </div>
+        <img src="https://png.pngtree.com/png-vector/20190820/ourmid/pngtree-no-image-vector-illustration-isolated-png-image_1694547.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h4 class="card-title"></h4>
+            <h6 class="card-text"></h6>
+        </div>
+    </div>
+    <div class="card">
+        <div class="rating">
+            Рейтинг: <span class="rating-value">0/5</span>
+            <span class="stars">☆☆☆☆☆</span>
+        </div>
+        <img src="https://png.pngtree.com/png-vector/20190820/ourmid/pngtree-no-image-vector-illustration-isolated-png-image_1694547.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h4 class="card-title"></h4>
+            <h6 class="card-text"></h6>
+        </div>
+    </div>
+    <div class="card">
+        <div class="rating">
+            Рейтинг: <span class="rating-value">0/5</span>
+            <span class="stars">☆☆☆☆☆</span>
+        </div>
+        <img src="https://png.pngtree.com/png-vector/20190820/ourmid/pngtree-no-image-vector-illustration-isolated-png-image_1694547.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h4 class="card-title">~</h4>
+            <h6 class="card-text">~</h6>
+        </div>
+    </div>
+</div>
+
+<style>
+
+    h6{
+        margin:5px 0;
+        color: darkgrey;
+    }
+    .card-container {
+        margin-top: 10px !important;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: start;
+        max-width: 1090px; /* Задайте максимальну ширину контейнера */
+        margin: 0 auto; /* Центруємо контейнер на сторінці */
+    }
+
+    .card {
+        width: 200px; /* Задайте ширину картки */
+        position: relative;
+        transition: all 0.3s ease-in-out;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        overflow: hidden; /* Щоб обрізати фото, якщо вони не вміщаються */
+    }
+
+        .card img {
+            width: 100%;
+            height: 100px; /* Задайте фіксовану висоту фото */
+            object-fit: cover; /* Щоб зберігати пропорції і обрізати фото */
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+    .rating {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 5px;
+        border-radius: 5px;
+        z-index: 1;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out; /* Додайте анімацію */
+    }
+
+    .card:hover .rating {
+        opacity: 1;
+    }
+
+    .rating-value {
+        font-weight: bold;
+    }
+
+</style>

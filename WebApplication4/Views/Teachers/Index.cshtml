@@ -1,0 +1,65 @@
+﻿@model IEnumerable<WebApplication4.Data.Teacher>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Викладачі</h1>
+
+<div class="button-19">
+    <a asp-action="Create">Create New</a>
+</div>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                @* @Html.DisplayNameFor(model => model.Username) *@Юзернейм
+            </th>
+            <th>
+       @*          @Html.DisplayNameFor(model => model.Password) *@Пароль
+            </th>
+            <th>
+                @* @Html.DisplayNameFor(model => model.Email) *@Електронна пошта
+            </th>
+            <th>
+           @*      @Html.DisplayNameFor(model => model.FirstName) *@Ім'я'
+            </th>
+            <th>
+               @*  @Html.DisplayNameFor(model => model.LastName) *@Фамілія
+            </th>
+            <th>
+               @*  @Html.DisplayNameFor(model => model.PhoneNumber) *@Номер телефону
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Редагувати</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Переглянути деталі</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Видалити</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
