@@ -11,7 +11,7 @@ public partial class TeachersSpecialization
 
     public int SpecializationId { get; set; }
 
-    public virtual Specialization Specialization { get; set; } = null!;
+    public virtual Specialization? Specialization { get; set; }
 
-    public virtual Teacher Teachers { get; set; } = null!;
+    public virtual Teacher? Teachers { get; set; }
 }
