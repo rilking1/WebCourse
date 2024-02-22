@@ -21,7 +21,7 @@ public partial class Student
 
     public int CourseId { get; set; }
 
-    public virtual Course Course { get; set; } = null!;
+    public virtual Course? Course { get; set; }
 
     public virtual ICollection<Rating> Ratings { get; set; } = new List<Rating>();
 }

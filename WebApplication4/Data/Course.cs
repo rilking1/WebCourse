@@ -28,5 +28,5 @@ public partial class Course
 
     public virtual ICollection<Student> Students { get; set; } = new List<Student>();
 
-    public virtual Teacher Teachers { get; set; } = null!;
+    public virtual Teacher? Teachers { get; set; }
 }
