@@ -1,12 +1,12 @@
 ﻿.table-bordered {
-    border: 1px solid #000; /* встановлюємо границю 1px товщиною */
-    border-collapse: collapse; /* з'єднуємо границі, щоб вони були одним цілим */
+    border: 1px solid #000;
+    border-collapse: collapse;
 }
 
     .table-bordered th,
     .table-bordered td {
-        border: 1px solid #000; /* границі для комірок */
-        padding: 8px; /* відступи від тексту до границі комірки */
+        border: 1px solid #000;
+        padding: 8px;
     }
 .create-button a {
     display: inline-block;

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace WebApplication4.Data;
 
@@ -7,8 +8,9 @@ public partial class Course
 {
     public int Id { get; set; }
 
+    [Required(ErrorMessage = "Швидко ввів назву (ง'̀-'́)ง")]
     public string? Title { get; set; }
-
+    [Required(ErrorMessage = "Швидко ввів опис (ง'̀-'́)ง")]
     public string? Description { get; set; }
 
     public int? DifficultyLevelId { get; set; }
