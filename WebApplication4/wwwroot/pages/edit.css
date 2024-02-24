@@ -1,4 +1,4 @@
-﻿/* Загальні стилі для форми */
+﻿
 .form-group {
     margin-bottom: 15px;
 }
@@ -14,7 +14,7 @@ select {
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    box-sizing: border-box; /* Щоб вміст вміщувався в межах області вводу */
+    box-sizing: border-box;
 }
 
 .button-19 {

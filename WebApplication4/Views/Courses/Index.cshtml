@@ -4,8 +4,8 @@
     ViewData["Title"] = "Index";
 }
 <head>
-    <link rel="stylesheet" href="~/Views/Courses/Index.cshtml.css" />
-
+@*     <link rel="stylesheet" href="~/Views/Courses/Index.cshtml.css" />
+ *@    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 
 <body>
@@ -16,81 +16,84 @@
         </p>
     </h1>
 
+    <div class="card-container">
+        <div class="filter">
+            <p class="material-symbols-outlined">
+                tune
+            </p>
+        </div>
+        @foreach (var item in Model)
+        {
+            <a asp-action="Details" asp-route-id="@item.Id">
+                <div class="card">
+                    <div class="rating">
+                        Рівень: <span class="DifficultyLevel">@Html.DisplayFor(modelItem => item.DifficultyLevel.DifLevel)</span>
+                        <span class="stars">★★☆☆☆</span>
+                    </div>
+                    <img src="https://png.pngtree.com/png-vector/20190820/ourmid/pngtree-no-image-vector-illustration-isolated-png-image_1694547.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h4 class="card-title">@Html.DisplayFor(modelItem => item.Title)</h4>
+                        <h6 class="card-text">@Html.DisplayFor(modelItem => item.Teachers.FirstName) @Html.DisplayFor(modelItem => item.Teachers.LastName)</h6>
+                    </div>
+                </div>
+            </a>
+        }
+    </div>
 
     <table class="table table-bordered">
-    <thead>
-        <tr>
-            <th>
-@*                 @Html.DisplayNameFor(model => model.Title) *@
-                назва
-            </th>
-            <th>
-@*                 @Html.DisplayNameFor(model => model.Description) *@
-                Опис
-            </th>
+        <thead>
+            <tr>
+                <th>
+                    @*                 @Html.DisplayNameFor(model => model.Title) *@
+                    Назва
+                </th>
+                <th>
+                    @*                 @Html.DisplayNameFor(model => model.Description) *@
+                    Опис
+                </th>
 
-            <th>
-@*                 @Html.DisplayNameFor(model => model.Category) *@
-                Категорія
-            </th>
-            <th>
-@*                 @Html.DisplayNameFor(model => model.DifficultyLevel) *@
-                рівень складності
-            </th>
-            <th>
-@*                 @Html.DisplayNameFor(model => model.Teachers) *@
-                вчитель
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
+                <th>
+                    @*                 @Html.DisplayNameFor(model => model.Category) *@
+                    Категорія
+                </th>
+                <th>
+                    @*                 @Html.DisplayNameFor(model => model.DifficultyLevel) *@
+                    Рівень складності
+                </th>
+                <th>
+                    @*                 @Html.DisplayNameFor(model => model.Teachers) *@
+                    Викладач
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
 
-            <td>
-                @Html.DisplayFor(modelItem => item.Category.Category1)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DifficultyLevel.DifLevel)
-            </td>
-            <td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Category.Category1)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DifficultyLevel.DifLevel)
+                    </td>
+                    <td>
                         @Html.DisplayFor(modelItem => item.Teachers.FirstName) @Html.DisplayFor(modelItem => item.Teachers.LastName)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Редагувати</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Переглянути деталі</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Видалити</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
-@* 
-<style>
-    body {
-        background-color: black;
-    }
-
-    .custom-table {
-        color: red;
-        background-color: red;
-    }
-
-    .custom-h1 {
-        color: aqua;
-    }
-</style> *@
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Редагувати</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Переглянути деталі</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Видалити</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </body>
-<style>
-h1{
-    margin:10px 0;
-}
-
-</style>

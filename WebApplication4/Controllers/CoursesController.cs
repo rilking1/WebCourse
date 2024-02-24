@@ -49,9 +49,10 @@ namespace WebApplication4.Controllers
         // GET: Courses/Create
         public IActionResult Create()
         {
-            ViewData["CategoryId"] = new SelectList(_context.Categorys, "Id", "Id");
-            ViewData["DifficultyLevelId"] = new SelectList(_context.DifficultyLevels, "Id", "Id");
-            ViewData["TeachersId"] = new SelectList(_context.Teachers, "Id", "Id");
+            ViewData["CategoryId"] = new SelectList(_context.Categorys, "Id", "Category1");
+            ViewData["DifficultyLevelId"] = new SelectList(_context.DifficultyLevels, "Id", "DifLevel");
+            ViewData["TeachersId"] = new SelectList(_context.Teachers, "Id", "FullName");
+
             return View();
         }
 
@@ -68,9 +69,9 @@ namespace WebApplication4.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryId"] = new SelectList(_context.Categorys, "Id", "Id", course.CategoryId);
-            ViewData["DifficultyLevelId"] = new SelectList(_context.DifficultyLevels, "Id", "Id", course.DifficultyLevelId);
-            ViewData["TeachersId"] = new SelectList(_context.Teachers, "Id", "Id", course.TeachersId);
+            ViewData["CategoryId"] = new SelectList(_context.Categorys, "Id", "Category1", course.CategoryId);
+            ViewData["DifficultyLevelId"] = new SelectList(_context.DifficultyLevels, "Id", "DifLevel", course.DifficultyLevelId);
+            ViewData["TeachersId"] = new SelectList(_context.Teachers, "Id", "FullName", course.TeachersId);
             return View(course);
         }
 
@@ -87,9 +88,9 @@ namespace WebApplication4.Controllers
             {
                 return NotFound();
             }
-            ViewData["CategoryId"] = new SelectList(_context.Categorys, "Id", "Id", course.CategoryId);
-            ViewData["DifficultyLevelId"] = new SelectList(_context.DifficultyLevels, "Id", "Id", course.DifficultyLevelId);
-            ViewData["TeachersId"] = new SelectList(_context.Teachers, "Id", "Id", course.TeachersId);
+            ViewData["CategoryId"] = new SelectList(_context.Categorys, "Id", "Category1", course.CategoryId);
+            ViewData["DifficultyLevelId"] = new SelectList(_context.DifficultyLevels, "Id", "DifLevel", course.DifficultyLevelId);
+            ViewData["TeachersId"] = new SelectList(_context.Teachers, "Id", "FullName", course.TeachersId);
             return View(course);
         }
 
@@ -125,9 +126,9 @@ namespace WebApplication4.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryId"] = new SelectList(_context.Categorys, "Id", "Id", course.CategoryId);
-            ViewData["DifficultyLevelId"] = new SelectList(_context.DifficultyLevels, "Id", "Id", course.DifficultyLevelId);
-            ViewData["TeachersId"] = new SelectList(_context.Teachers, "Id", "Id", course.TeachersId);
+            ViewData["CategoryId"] = new SelectList(_context.Categorys, "Id", "Category1", course.CategoryId);
+            ViewData["DifficultyLevelId"] = new SelectList(_context.DifficultyLevels, "Id", "DifLevel", course.DifficultyLevelId);
+            ViewData["TeachersId"] = new SelectList(_context.Teachers, "Id", "FullName", course.TeachersId);
             return View(course);
         }
 
