@@ -1,13 +1,122 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+
+<div id="countByYearChart"></div>
+<div id="countByYearChart2"></div>
+<div>
+    <input type="range" min="100" max="5000" value="1000" id="speedRange">
+</div>
+
+@section Scripts {
+    <script>
+        let intervalId1;
+        let intervalId2;
+
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        function drawСountByDifLvlChart(yearToCountList, speed) {
+            const dataTable = new google.visualization.DataTable();
+            dataTable.addColumn('string', 'Рівень складності');
+            dataTable.addColumn('number', 'Кількість курсів');
+            yearToCountList.forEach(item => {
+                dataTable.addRow([item.difLvl, item.count]);
+            });
+            const options = {
+                title: 'Розподіл курсів за рівнем складності:',
+                width: 600,
+                height: 400,
+                legend: { position: 'none' }
+            };
+
+            const chart = new google.visualization.ColumnChart(document.getElementById('countByYearChart'));
+
+            function updateColors() {
+                const numRows = dataTable.getNumberOfRows();
+                const colors = [];
+                for (let i = 0; i < numRows; i++) {
+                    colors.push(getRandomColor());
+                }
+                options.colors = colors;
+                chart.draw(dataTable, options);
+            }
+
+            updateColors();
+            clearInterval(intervalId1);
+            intervalId1 = setInterval(updateColors, speed);
+        }
+
+        function drawСountByCategoryChart(yearToCountList, speed) {
+            const dataTable = new google.visualization.DataTable();
+            dataTable.addColumn('string', 'Категорія');
+            dataTable.addColumn('number', 'Кількість курсів');
+            yearToCountList.forEach(item => {
+                dataTable.addRow([item.difLvl, item.count]);
+            });
+            const options = {
+                title: 'Розподіл курсів за категоріями:',
+                width: 600,
+                height: 400
+            };
+
+            const chart = new google.visualization.PieChart(document.getElementById('countByYearChart2'));
+
+            function updateColors() {
+                const numRows = dataTable.getNumberOfRows();
+                const colors = [];
+                for (let i = 0; i < numRows; i++) {
+                    colors.push(getRandomColor());
+                }
+                options.colors = colors;
+                chart.draw(dataTable, options);
+            }
+
+            updateColors();
+            clearInterval(intervalId2);
+            intervalId2 = setInterval(updateColors, speed);
+        }
+
+        google.charts.load('current', { 'packages': ['corechart'] });
+        google.charts.setOnLoadCallback(drawCharts);
+
+        function drawCharts() {
+            const speedInput = document.getElementById('speedRange');
+
+            speedInput.addEventListener('input', function () {
+                const speed = parseInt(this.value);
+                Promise.all([
+                    fetch('/api/charts/countByDifLvl').then(response => response.json()),
+                    fetch('/api/charts/countByCategory').then(response => response.json())
+                ]).then(([data1, data2]) => {
+                    drawСountByDifLvlChart(data1, speed);
+                    drawСountByCategoryChart(data2, speed);
+                });
+            });
+        }
+    </script>
+}
+
+
+
+
+
+
+
+
 @* <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" /> *@
 @* <div class="wide-hero-banner-slide-module--image-container--PM07Q">
     <picture>
         <img class="baner" src="https://img-c.udemycdn.com/notices/web_carousel_slide/image/db24b94e-d190-4d5a-b1dd-958f702cc8f5.jpg">
     </picture>
 </div> *@
-<a class="link" asp-area="" asp-controller="courses" asp-action="Index">Курси</a>
+@* <a class="link" asp-area="" asp-controller="courses" asp-action="Index">Курси</a>
 <div class="card-container">
     <div class="card">
         <div class="rating">
@@ -134,3 +243,4 @@
     }
 
 </style>
+ *@
