@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace WebApplication4.Data;
 
-public partial class Teacher
+public partial class Teacher : Entity
 {
-    public int Id { get; set; }
+    //public int Id { get; set; }
 
     public string Username { get; set; } = null!;
 

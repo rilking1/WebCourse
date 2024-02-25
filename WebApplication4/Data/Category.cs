@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace WebApplication4.Data;
 
-public partial class Category
+public partial class Category : Entity
 {
-    public int Id { get; set; }
+    //public int Id { get; set; }
 
     public string? Category1 { get; set; }
 

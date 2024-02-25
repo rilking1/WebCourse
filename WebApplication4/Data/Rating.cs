@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace WebApplication4.Data;
 
-public partial class Rating
+public partial class Rating : Entity
 {
-    public int Id { get; set; }
+    //public int Id { get; set; }
 
     public int CourseId { get; set; }
 

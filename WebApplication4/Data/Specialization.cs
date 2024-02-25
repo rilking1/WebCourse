@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace WebApplication4.Data;
 
-public partial class Specialization
+public partial class Specialization : Entity
 {
-    public int Id { get; set; }
+    //public int Id { get; set; }
 
     public string Specialization1 { get; set; } = null!;
 
