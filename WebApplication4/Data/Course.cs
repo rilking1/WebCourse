@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace WebApplication4.Data;
 
-public partial class Course
+public partial class Course : Entity
 {
-    public int Id { get; set; }
+    //public int Id { get; set; }
 
     [Required(ErrorMessage = "Швидко ввів назву (ง'̀-'́)ง")]
     public string? Title { get; set; }

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace WebApplication4.Data;
 
-public partial class DifficultyLevel
+public partial class DifficultyLevel : Entity
 {
-    public int Id { get; set; }
+    //public int Id { get; set; }
 
     public string DifLevel { get; set; } = null!;
 

@@ -6,6 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using WebApplication4.Data;
+using WebApplication4.Services;
+
+
 
 namespace WebApplication4.Controllers
 {
@@ -152,5 +155,39 @@ namespace WebApplication4.Controllers
         {
             return _context.Categorys.Any(e => e.Id == id);
         }
+
+        //[HttpGet]
+        //public IActionResult Import() { return View(); }
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+
+        //public async Task<ActionResult> Import(IFormFile fileExel, CancellationToken cancellationToken = default)
+        //{
+        //    var importService = _categoryDataPortServiceFactory.GetImportService(fileExel.ContentType);
+
+        //    using var stream = fileExel.OpenReadStream();
+
+
+        //}
+        [HttpGet]
+        public IActionResult Import()
+        {
+            return View();
+        }
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> Import(IFormFile fileExel, CancellationToken cancellationToken = default)
+        //{
+        //    var importService = _categoryDataPortServiceFactory.GetImportService(fileExel.ContentType);
+
+        //    using var stream = fileExel.OpenReadStream();
+
+        //    await importService.ImportFromStreamAsync(stream, cancellationToken);
+
+        //    return RedirectToAction(nameof(Index));
+        //}
+
     }
 }
