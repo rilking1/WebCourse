@@ -15,10 +15,12 @@ namespace WebApplication4.Controllers
     public class CategoriesController : Controller
     {
         private readonly DbcoursesContext _context;
+        private IDataPortServiceFactory<Category> _categoryDataPortServiceFactory; // Declare without initialization
 
         public CategoriesController(DbcoursesContext context)
         {
             _context = context;
+            _categoryDataPortServiceFactory = new CategoryDataPortServiceFactory(_context); // Initialize in the constructor
         }
 
         // GET: Categories
@@ -176,18 +178,49 @@ namespace WebApplication4.Controllers
             return View();
         }
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Import(IFormFile fileExel, CancellationToken cancellationToken = default)
-        //{
-        //    var importService = _categoryDataPortServiceFactory.GetImportService(fileExel.ContentType);
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Import(IFormFile fileExcel, CancellationToken cancellationToken = default)
+        {
+            var importService = _categoryDataPortServiceFactory.GetImportService(fileExcel.ContentType);
 
-        //    using var stream = fileExel.OpenReadStream();
+            using var stream = fileExcel.OpenReadStream();
 
-        //    await importService.ImportFromStreamAsync(stream, cancellationToken);
+            await importService.ImportFromStreamAsync(stream, cancellationToken);
 
-        //    return RedirectToAction(nameof(Index));
-        //}
+            return RedirectToAction(nameof(Index));
+        }
+
+
+
+
+
+        //    [HttpGet]
+        //    public async Task<IActionResult> Export([FromQuery] string contentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        //CancellationToken cancellationToken = default)
+        //    {
+        //        var exportService = _categoryDataPortServiceFactory.GetExportService(contentType);
+
+        //        var memoryStream = new MemoryStream();
+
+        //        await exportService.WriteToAsync(memoryStream, cancellationToken);
+
+        //        await memoryStream.FlushAsync(cancellationToken);
+        //        memoryStream.Position = 0;
+
+
+        //        return new FileStreamResult(memoryStream, contentType)
+        //        {
+        //            FileDownloadName = $"categiries_{DateTime.UtcNow.ToShortDateString()}.xlsx"
+        //        };
+        //    }
+
+
+
+
+
+
+
 
     }
 }
