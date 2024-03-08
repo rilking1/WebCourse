@@ -19,9 +19,13 @@ public partial class Teacher : Entity
 
     public string? PhoneNumber { get; set; }
 
+    public int? PhotoUrlId { get; set; }
+
     public string FullName => FirstName + ' ' + LastName;
 
     public virtual ICollection<Course> Courses { get; set; } = new List<Course>();
 
     public virtual ICollection<TeachersSpecialization> TeachersSpecializations { get; set; } = new List<TeachersSpecialization>();
+
+    public virtual Photo? PhotoUrl { get; set; }
 }

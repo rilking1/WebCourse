@@ -21,6 +21,10 @@ public partial class Student : Entity
 
     public int CourseId { get; set; }
 
+    public int? PhotoUrlId { get; set; }
+
+    public virtual Photo? PhotoUrl { get; set; }
+
     public virtual Course? Course { get; set; }
 
     public virtual ICollection<Rating> Ratings { get; set; } = new List<Rating>();

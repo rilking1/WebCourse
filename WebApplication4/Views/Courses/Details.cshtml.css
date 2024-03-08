@@ -13,7 +13,7 @@
     margin: 0 auto;
     background-color: #2d2f31;
 }
-.Container {
+.Container1 {
     margin-top:20px;
     color: white;
     margin-bottom:20px
@@ -72,4 +72,85 @@
 
 .videoContainer:hover .play-button {
     transform: translate(-50%, -50%) scale(1.2); /* Збільште значок на 20% при наведенні на контейнер */
+}
+.accordion {
+    max-width: 1090px;
+    margin: 100px auto;
+}
+
+    .accordion .container {
+        margin-bottom: 10px;
+
+        padding: 10px;
+        background: #e0ffff;
+        border-radius: 5px;
+    }
+
+    .accordion .label {
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 18px;
+        font-weight: 500;
+        color: #42455a;
+        cursor: pointer;
+    }
+
+        .accordion .label span {
+            font-size: 22px;
+            color: #333;
+        }
+
+    .accordion .content {
+        height: 0;
+        padding: 0 10px;
+        line-height: 26px;
+        overflow: hidden;
+        transition: height 0.5s;
+    }
+
+    .accordion .container.active .content {
+        height: 100px;
+    }
+
+.cps {
+    max-width: 1090px;
+    margin: 50px 356px 0 0;
+    border: 1px solid #d1d7dc;
+    padding:30px;
+}
+.WhatLearn {
+
+    max-width: 1090px;
+    margin: 0 auto;
+}
+.list {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    padding:0px;
+}
+.list li {
+    width: 50%;
+    display:flex;
+    margin-top:30px;
+}
+    .list li span {
+margin-right:10px;
+    }
+.material-symbols-outlined {
+    transition: transform 0.3s ease; /* Додайте плавну анімацію для обертання */
+}
+.InstructorBio {
+    max-width: 1090px;
+    margin: auto;
+}
+.InstructorImageAndStats{
+    display:flex;
+
+}
+.StatContainer {
+    display: flex;
+    align-items: center;
 }

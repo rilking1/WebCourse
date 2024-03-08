@@ -21,7 +21,7 @@ namespace WebApplication4.Controllers
         // GET: Courses
         public async Task<IActionResult> Index()
         {
-            var dbcoursesContext = _context.Courses.Include(c => c.Category).Include(c => c.DifficultyLevel).Include(c => c.Teachers);
+            var dbcoursesContext = _context.Courses.Include(c => c.Category).Include(c => c.DifficultyLevel).Include(c => c.Teachers).Include(c => c.PhotoUrl);
             return View(await dbcoursesContext.ToListAsync());
         }
 
@@ -37,6 +37,7 @@ namespace WebApplication4.Controllers
                 .Include(c => c.Category)
                 .Include(c => c.DifficultyLevel)
                 .Include(c => c.Teachers)
+                .Include(c => c.PhotoUrl)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (course == null)
             {
@@ -52,7 +53,7 @@ namespace WebApplication4.Controllers
             ViewData["CategoryId"] = new SelectList(_context.Categorys, "Id", "Category1");
             ViewData["DifficultyLevelId"] = new SelectList(_context.DifficultyLevels, "Id", "DifLevel");
             ViewData["TeachersId"] = new SelectList(_context.Teachers, "Id", "FullName");
-
+            ViewData["PhotoUrlId"] = new SelectList(_context.Photos, "Id", "PhotoUrl");
             return View();
         }
 
@@ -61,7 +62,7 @@ namespace WebApplication4.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,Description,DifficultyLevelId,CategoryId,TeachersId")] Course course)
+        public async Task<IActionResult> Create([Bind("Id,Title,Description,DifficultyLevelId,CategoryId,TeachersId, PhotoUrlId")] Course course)
         {
             if (ModelState.IsValid)
             {
@@ -72,6 +73,7 @@ namespace WebApplication4.Controllers
             ViewData["CategoryId"] = new SelectList(_context.Categorys, "Id", "Category1", course.CategoryId);
             ViewData["DifficultyLevelId"] = new SelectList(_context.DifficultyLevels, "Id", "DifLevel", course.DifficultyLevelId);
             ViewData["TeachersId"] = new SelectList(_context.Teachers, "Id", "FullName", course.TeachersId);
+            ViewData["PhotoUrlId"] = new SelectList(_context.Photos, "Id", "PhotoUrl", course.PhotoUrlId);
             return View(course);
         }
 
@@ -91,6 +93,7 @@ namespace WebApplication4.Controllers
             ViewData["CategoryId"] = new SelectList(_context.Categorys, "Id", "Category1", course.CategoryId);
             ViewData["DifficultyLevelId"] = new SelectList(_context.DifficultyLevels, "Id", "DifLevel", course.DifficultyLevelId);
             ViewData["TeachersId"] = new SelectList(_context.Teachers, "Id", "FullName", course.TeachersId);
+            ViewData["PhotoUrlId"] = new SelectList(_context.Photos, "Id", "PhotoUrl", course.PhotoUrlId);
             return View(course);
         }
 
@@ -99,7 +102,7 @@ namespace WebApplication4.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Description,DifficultyLevelId,CategoryId,TeachersId")] Course course)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Description,DifficultyLevelId,CategoryId,TeachersId,PhotoUrlId")] Course course)
         {
             if (id != course.Id)
             {
@@ -129,6 +132,7 @@ namespace WebApplication4.Controllers
             ViewData["CategoryId"] = new SelectList(_context.Categorys, "Id", "Category1", course.CategoryId);
             ViewData["DifficultyLevelId"] = new SelectList(_context.DifficultyLevels, "Id", "DifLevel", course.DifficultyLevelId);
             ViewData["TeachersId"] = new SelectList(_context.Teachers, "Id", "FullName", course.TeachersId);
+            ViewData["PhotoUrlId"] = new SelectList(_context.Photos, "Id", "PhotoUrl", course.PhotoUrlId);
             return View(course);
         }
 

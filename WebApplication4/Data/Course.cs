@@ -17,7 +17,9 @@ public partial class Course : Entity
 
     public int? CategoryId { get; set; }
 
+    public int? PhotoUrlId { get; set; }
 
+    public virtual Photo? PhotoUrl { get; set; }
 
 
     public int TeachersId { get; set; }

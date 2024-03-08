@@ -11,7 +11,7 @@
 <div class="container-color">
     <div class="mainContainer">
         <div class="TitleContainer">
-            <div class="Container">
+            <div class="Container1">
                 <h1 class="title">
                     @Html.DisplayFor(model => model.Title)
 
@@ -40,11 +40,164 @@
 
 
 </div>
+<div class="WhatLearn">
+    <div class="cps">
+        <h3 class="WhatLearnTitle">Upskill your team with Udemy Business</h3>
+        <ul class="list">
+            <li>
+                <span class="material-symbols-outlined">check</span>
+                <div class="text">Unlimited access to 25,000+ top Udemy courses, anytime, anywhere</div>
+            </li>
+            <li>
+                <span class="material-symbols-outlined">check</span>
+                <div class="text">International course collection in 14 languages</div>
+            </li>
+            <li>
+                <span class="material-symbols-outlined">check</span>
+                <div class="text">Top certifications in tech and business</div>
+            </li>
+            <li>
+                <span class="material-symbols-outlined">check</span>
+                <div class="text">Unlimited access to 25,000+ top Udemy courses, anytime, anywhere</div>
+            </li>
+            <li>
+                <span class="material-symbols-outlined">check</span>
+                <div class="text">International course collection in 14 languages</div>
+            </li>
+            <li>
+                <span class="material-symbols-outlined">check</span>
+                <div class="text">Top certifications in tech and business</div>
+            </li>
+            <li>
+                <span class="material-symbols-outlined">check</span>
+                <div class="text">Top certifications in tech and business</div>
+            </li>
+            <li>
+                <span class="material-symbols-outlined">check</span>
+                <div class="text">Top certifications in tech and business</div>
+            </li>
+        </ul>
+
+    </div>
+</div>
+<div class="accordion">
+    <h1>JavaScript Accordion</h1>
+    <div class="container">
+        <div class="label">
+            <span class="material-symbols-outlined bab">
+                expand_less
+            </span>5 lectures • 19 min
+
+        </div>
+        <div class="content">
+            <div class="VideoContent">
+                <span class="material-symbols-outlined">
+                    play_circle
+                </span>
+
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="label">
+            <span class="material-symbols-outlined">
+                expand_less
+            </span>Accordion 2
+        </div>
+        <div class="content">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident, excepturi. Explicabo
+            praesentium quaerat eligendi aliquid? Deserunt et possimus quasi fugiat repellendus blanditiis molestias,
+            expedita libero eius nisi, illum veniam pariatur.
+        </div>
+    </div>
+    <div class="container">
+        <div class="label">
+            <span class="material-symbols-outlined">
+                expand_less
+            </span>Accordion 3
+        </div>
+        <div class="content">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident, excepturi. Explicabo
+            praesentium quaerat eligendi aliquid? Deserunt et possimus quasi fugiat repellendus blanditiis molestias,
+            expedita libero eius nisi, illum veniam pariatur.
+        </div>
+    </div>
+    <div class="container">
+        <div class="label">
+            <span class="material-symbols-outlined">
+                expand_less
+            </span> 4
+        </div>
+        <div class="content">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident, excepturi. Explicabo
+            praesentium quaerat eligendi aliquid? Deserunt et possimus quasi fugiat repellendus blanditiis molestias,
+            expedita libero eius nisi, illum veniam pariatur.
+        </div>
+    </div>
+</div>
 
 
+<script>
+    const accordion = document.querySelectorAll('.accordion .container');
 
+    accordion.forEach(item => {
+        const label = item.querySelector('.label');
+        const symbol = label.querySelector('.material-symbols-outlined');
 
-@* 
+        label.addEventListener('click', function () {
+            item.classList.toggle('active');
+            if (symbol) {
+                if (item.classList.contains('active')) {
+                    symbol.style.transform = 'rotate(180deg)';
+                } else {
+                    symbol.style.transform = 'rotate(0deg)';
+                }
+            }
+        });
+    });
+</script>
+<div class="InstructorBio">
+    <h2>Instructor</h2>
+    <a href="#" class="InstructorName"></a>
+    <div class="InstructorImageAndStats">
+        <a class="InstructorImage" href="#">
+            <img src="https://img-c.udemycdn.com/user/200_H/9685726_67e7_4.jpg">
+        </a>
+        <ul class="InstructorStats">
+            <li class="Rating">
+                <div class="StatContainer">
+                    <span class="material-symbols-outlined">star</span>
+                    <span>text</span>
+                </div>
+            </li>
+            <li class="Reviews">
+            <li class="Rating">
+                <div class="StatContainer">
+                    <span class="material-symbols-outlined">star</span>
+                    <span>text</span>
+                </div>
+            </li>
+            <li class="Students">
+            <li class="Rating">
+                <div class="StatContainer">
+                    <span class="material-symbols-outlined">star</span>
+                    <span>text</span>
+                </div>
+            </li>
+            <li class="Courses">
+            <li class="Rating">
+                <div class="StatContainer">
+                    <span class="material-symbols-outlined">star</span>
+                    <span>text</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <p>Al Sweigart is a software developer and author. He has written eight programming books, spoken at Python conferences, and has taught both kids and adults how to program. Python is his favorite programming language, and he is the developer of several open source modules for it. He is driven to make programming knowledge available to all, and his books freely available under a Creative Commons license.</p>
+
+</div>
+
+@*
 <div>
     <h4>Course</h4>
     <hr />
