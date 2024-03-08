@@ -24,3 +24,9 @@ body {
 /*body {
     max-width: 1090px;
 }*/
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+
+}
